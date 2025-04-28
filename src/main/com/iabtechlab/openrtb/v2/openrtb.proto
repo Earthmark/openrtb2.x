@@ -1,10 +1,11 @@
 edition = "2023";
 
+package com.iabtechlab.openrtb.v2;
+
 import "google/protobuf/any.proto";
 import "google/protobuf/struct.proto";
 
 option java_outer_classname = "OpenRtb";
-package com.iabtechlab.openrtb.v2;
 
 // Copyright 2020 IAB Tech Lab
 //
@@ -299,9 +300,9 @@ message BidRequest {
         message Ext {
           extensions 500 to max;
         }
-      } // SupplyChainNode
-    } // SupplyChain
-  } // Source
+      }  // SupplyChainNode
+    }  // SupplyChain
+  }  // Source
 
   // This object describes an ad placement or impression being auctioned. A
   // single bid request can include multiple Imp objects, a use case for which
@@ -467,7 +468,7 @@ message BidRequest {
       message Ext {
         extensions 500 to max;
       }
-    } // Metric
+    }  // Metric
 
     // This object represents the most general type of impression. Although the
     // term "banner" may have very specific meaning in other contexts, here it
@@ -591,8 +592,8 @@ message BidRequest {
         message Ext {
           extensions 500 to max;
         }
-      } // Format
-    } // Banner
+      }  // Format
+    }  // Banner
 
     // This object represents a video impression. Many of the fields are
     // non-essential for minimally viable transactions, but are included to
@@ -801,7 +802,7 @@ message BidRequest {
 
       // Retired fields.
       reserved 22;
-    } // Video
+    }  // Video
 
     // This object represents an audio type impression. Many of the fields are
     // non-essential for minimally viable transactions, but are included to
@@ -945,14 +946,14 @@ message BidRequest {
       message Ext {
         extensions 500 to max;
       }
-    } // Audio
+    }  // Audio
 
     // This object represents a native type impression. Native ad units are
     // intended to blend seamlessly into the surrounding content (e.g., a
     // sponsored Twitter or Facebook post). As such, the response must be
     // well-structured to afford the publisher fine-grained control over
     // rendering.
-    // 
+    //
     // The Native Subcommittee has developed a companion specification to
     // OpenRTB called the Dynamic Native Ads API. It defines the request
     // parameters and response markup structure of native ad units. This object
@@ -960,7 +961,7 @@ message BidRequest {
     // so that the specific parameters can evolve separately under the auspices
     // of the Dynamic Native Ads API. Similarly, the ad markup served will be
     // structured according to that specification.
-    // 
+    //
     // The presence of a Native as a subordinate of the Imp object indicates
     // that this impression is offered as a native type impression. At the
     // publisher's discretion, that same impression may also be offered as
@@ -1006,7 +1007,7 @@ message BidRequest {
       message Ext {
         extensions 500 to max;
       }
-    } // Native
+    }  // Native
 
     // A programmatic impression is often referred to as a ‘spot' in digital
     // out-of-home and CTV, with an impression being a unique member of the
@@ -1022,9 +1023,9 @@ message BidRequest {
       double multiplier = 1;
 
       // The source type of the quantity measurement, ie. publisher.
-      // Refer to enum com.iabtechlab.adcom.v1.enums.DOOHMultiplierMeasurementSourceType
-      // for values.
-      // RECOMMENDED by the OpenRTB specification.
+      // Refer to enum
+      // com.iabtechlab.adcom.v1.enums.DOOHMultiplierMeasurementSourceType for
+      // values. RECOMMENDED by the OpenRTB specification.
       int32 sourcetype = 2;
 
       // The top level business domain name of the measurement vendor providing
@@ -1038,7 +1039,7 @@ message BidRequest {
       message Ext {
         extensions 500 to max;
       }
-    } // Qty
+    }  // Qty
 
     message Refresh {
       // A RefSettings object (see Section 3.2.34) describing the mechanics of
@@ -1074,8 +1075,8 @@ message BidRequest {
         message Ext {
           extensions 500 to max;
         }
-      } // RefSettings
-    } // Refresh
+      }  // RefSettings
+    }  // Refresh
 
     // This object is the private marketplace container for direct deals between
     // buyers and sellers that may pertain to this impression. The actual deals
@@ -1154,8 +1155,8 @@ message BidRequest {
         message Ext {
           extensions 500 to max;
         }
-      } // Deal
-    } // Pmp
+      }  // Deal
+    }  // Pmp
 
     // SKAdNetwork object list attributes.
     message SKAdNetworkList {
@@ -1177,7 +1178,7 @@ message BidRequest {
       message Ext {
         extensions 500 to max;
       }
-    } // SKAdNetworkList
+    }  // SKAdNetworkList
 
     // Publisher's SKAdNetwork information to support app installation
     // attribution for iOS 14 and later. Apple's SKAdNetwork API helps
@@ -1223,7 +1224,7 @@ message BidRequest {
       message Ext {
         extensions 500 to max;
       }
-    } // SKAdNetworkRequest
+    }  // SKAdNetworkRequest
 
     message InterestGroupAuctionSupport {
       // Interest Group auction environment support for this impression. Note
@@ -1249,8 +1250,8 @@ message BidRequest {
       // expect sellers to honor corresponding Interest Group Intent signals
       // when this field is 1.
       bool biddable = 2 [default = false];
-    } // InterestGroupAuctionSupport
-  } // Imp
+    }  // InterestGroupAuctionSupport
+  }  // Imp
 
   // This object should be included if the ad supported content is a website as
   // opposed to a non-browser application or Digital Out of Home (DOOH)
@@ -1337,7 +1338,7 @@ message BidRequest {
 
     // Retired fields.
     reserved 14;
-  } // Site
+  }  // Site
 
   // This object should be included if the ad supported content is a non-browser
   // application (typically in mobile) as opposed to a website. A bid request
@@ -1427,7 +1428,7 @@ message BidRequest {
 
     // Retired fields.
     reserved 14;
-  } // App
+  }  // App
 
   // This object should be included if the ad supported content is a Digital
   // Out-Of-Home screen. A bid request with a DOOH object must not contain a
@@ -1469,7 +1470,7 @@ message BidRequest {
     message Ext {
       extensions 500 to max;
     }
-  } // Dooh
+  }  // Dooh
 
   // This object describes the entity who directly supplies inventory to and is
   // paid by the exchange. This may be a publisher, intermediary exchange, ad
@@ -1501,7 +1502,7 @@ message BidRequest {
     message Ext {
       extensions 500 to max;
     }
-  } // Publisher
+  }  // Publisher
 
   // This object describes the content in which the impression will appear,
   // which may be syndicated or non-syndicated content. This object may be
@@ -1649,7 +1650,7 @@ message BidRequest {
 
     // Retired fields.
     reserved 12, 26;
-  } // Content
+  }  // Content
 
   // This object defines the producer of the content in which the ad will be
   // shown. This is particularly useful when the content is syndicated and may
@@ -1681,7 +1682,7 @@ message BidRequest {
     message Ext {
       extensions 500 to max;
     }
-  } // Producer
+  }  // Producer
 
   // This object describes the network an ad will be displayed on. A Network is
   // defined as the parent entity of the Channel object's entity for the
@@ -1710,7 +1711,7 @@ message BidRequest {
     message Ext {
       extensions 500 to max;
     }
-  } // Network
+  }  // Network
 
   // This object describes the channel an ad will be displayed on. A Channel is
   // defined as the entity that curates a content library, or stream within a
@@ -1738,7 +1739,7 @@ message BidRequest {
     message Ext {
       extensions 500 to max;
     }
-  } // Channel
+  }  // Channel
 
   // This object provides information pertaining to the device through which the
   // user is interacting. Device information includes its hardware, platform,
@@ -1896,7 +1897,8 @@ message BidRequest {
       // format.
       string ifv = 2;
 
-      // Chrome-facilitated cookie deprecation testing label as received from Chrome.
+      // Chrome-facilitated cookie deprecation testing label as received from
+      // Chrome.
       // https://developer.chrome.com/en/docs/privacy-sandbox/chrome-testing/
       string cdep = 3;
 
@@ -1905,14 +1907,14 @@ message BidRequest {
 
       extensions 500 to max;
     }
-  } // Device
+  }  // Device
 
   // This object encapsulates various methods for specifying a geographic
   // location. When subordinate to a Device object, it indicates the location of
   // the device which can also be interpreted as the user's current location.
   // When subordinate to a User object, it indicates the location of the user's
   // home base (i.e., not necessarily their current location).
-  // 
+  //
   // The lat/lon attributes should only be passed if they conform to the
   // accuracy depicted in the type attribute. For example, the centroid of a
   // geographic region such as postal code should not be passed.
@@ -1975,7 +1977,7 @@ message BidRequest {
     message Ext {
       extensions 500 to max;
     }
-  } // Geo
+  }  // Geo
 
   // Structured user agent information, which can be used when a client supports
   // User-Agent Client Hints. If both device.ua and device.sua are present in
@@ -2039,7 +2041,7 @@ message BidRequest {
     message Ext {
       extensions 500 to max;
     }
-  } // UserAgent
+  }  // UserAgent
 
   // Further identification based on User-Agent Client Hints, the BrandVersion
   // object is used to identify a device's browser or similar software
@@ -2061,7 +2063,7 @@ message BidRequest {
     message Ext {
       extensions 500 to max;
     }
-  } // BrandVersion
+  }  // BrandVersion
 
   // This object contains information known or derived about the human user of
   // the device (i.e., the audience for advertising). The user id is an exchange
@@ -2196,9 +2198,9 @@ message BidRequest {
         message Ext {
           extensions 500 to max;
         }
-      } // UID
-    } // EID
-  } // User
+      }  // UID
+    }  // EID
+  }  // User
 
   // The data and segment objects together allow additional data about the
   // related object (e.g., user, content) to be specified. This data may be from
@@ -2250,8 +2252,8 @@ message BidRequest {
       message Ext {
         extensions 500 to max;
       }
-    } // Segment
-  } // Data
+    }  // Segment
+  }  // Data
 
   // This object contains any legal, governmental, or industry regulations that
   // the sender deems applicable to the request. See Section 7.5 for more
@@ -2333,16 +2335,16 @@ message BidRequest {
       // adrender, 2 = Publisher will render.
       int32 pubrender = 2;
 
-      // Independent of pubrender, the publisher may need the transparency data for
-      // audit purposes. 0 = do not send transparency data, 1 = optional to send
-      // transparency data, 2 = send transparency data.
+      // Independent of pubrender, the publisher may need the transparency data
+      // for audit purposes. 0 = do not send transparency data, 1 = optional to
+      // send transparency data, 2 = send transparency data.
       int32 datatopub = 3;
 
       // Array of objects of the entities that applied user parameters and the
       // parameters they applied.
       repeated Transparency transparency = 4;
-    } // DsaRequest
-  } // Regs
+    }  // DsaRequest
+  }  // Regs
 
   // This object allows sellers to specify price floors for video and audio
   // creatives, whose price varies based on time. For example: 1-15 seconds at a
@@ -2374,7 +2376,7 @@ message BidRequest {
     message Ext {
       extensions 500 to max;
     }
-  } // DurFloors
+  }  // DurFloors
 }
 
 // This object is the top-level bid response object (i.e., the unnamed outer
@@ -2652,7 +2654,7 @@ message BidResponse {
         // transparency information inside the creative. 0 = buyer/advertiser
         // will not render, 1 = buyer/advertiser will render.
         bool adrender = 4;
-      } // DsaResponse
+      }  // DsaResponse
 
       // SKAdNetwork fidelity attributes.
       message SKAdNetworkFidelity {
@@ -2663,8 +2665,8 @@ message BidResponse {
         }
         int32 fidelity = 1;
 
-        // An id unique to each ad response. Refer to Apple's documentation for the
-        // proper UUID format requirements:
+        // An id unique to each ad response. Refer to Apple's documentation for
+        // the proper UUID format requirements:
         // https://developer.apple.com/documentation/storekit/skstoreproductparameteradnetworknonce
         string nonce = 2;
 
@@ -2680,7 +2682,7 @@ message BidResponse {
         message Ext {
           extensions 500 to max;
         }
-      } // SKAdNetworkFidelity
+      }  // SKAdNetworkFidelity
 
       // Advertiser's SKAdNetwork information to support app installation
       // attribution for iOS 14 and later.  Apple's SKAdNetwork API helps
@@ -2693,18 +2695,18 @@ message BidResponse {
         // Version of SKAdNetwork desired. Must be 2.0 or above.
         string version = 1;
 
-	// Ad network identifier used in signature. Should match one of the
-	// items in the skadnetids array in the request.
-	string network = 2;
+        // Ad network identifier used in signature. Should match one of the
+        // items in the skadnetids array in the request.
+        string network = 2;
 
-	// A four-digit integer that ad networks define to represent the ad
-	// campaign.  Used in SKAdNetwork 4.0+, replaces Campaign ID 'campaign'.
-	// DSPs must generate signatures in 4.0+ using the Source Identifier.
-	string sourceidentifier = 10;
+        // A four-digit integer that ad networks define to represent the ad
+        // campaign.  Used in SKAdNetwork 4.0+, replaces Campaign ID 'campaign'.
+        // DSPs must generate signatures in 4.0+ using the Source Identifier.
+        string sourceidentifier = 10;
 
-	// Campaign ID compatible with Apple's spec. As of 2.0, should be an
-	// integer between 1 and 100, expressed as a string.
-	string campaign = 3;
+        // Campaign ID compatible with Apple's spec. As of 2.0, should be an
+        // integer between 1 and 100, expressed as a string.
+        string campaign = 3;
 
         // ID of advertiser's app in Apple's app store. Should match
         // BidResponse.seatbid.bid.bundle.
@@ -2716,11 +2718,11 @@ message BidResponse {
         // Supports multiple fidelity types introduced in SKAdNetwork v2.2.
         repeated SKAdNetworkFidelity fidelities = 9;
 
-	// An id unique to each ad response. Refer to Apple's documentation for
-	// the proper UUID format requirements.
-	// Note: With the release of SKAdNetwork v2.2, this field is deprecated
-	// in favor of the BidResponse.seatbid.bid.ext.skadn.fidelities.nonce to
-	// support multiple fidelity-types.
+        // An id unique to each ad response. Refer to Apple's documentation for
+        // the proper UUID format requirements.
+        // Note: With the release of SKAdNetwork v2.2, this field is deprecated
+        // in favor of the BidResponse.seatbid.bid.ext.skadn.fidelities.nonce to
+        // support multiple fidelity-types.
         string nonce = 5;
 
         // ID of publisher's app in Apple's app store. Should match
@@ -2728,15 +2730,17 @@ message BidResponse {
         string sourceapp = 6;
 
         // Unix time in millis used at the time of signature generation.
-	// Note: With the release of SKAdNetwork 2.2, this field is deprecated
-	// in favor of the BidResponse.seatbid.bid.ext.skadn.fidelities.timestamp
-        // to support multiple fidelity-types.
+        // Note: With the release of SKAdNetwork 2.2, this field is deprecated
+        // in favor of the
+        // BidResponse.seatbid.bid.ext.skadn.fidelities.timestamp to support
+        // multiple fidelity-types.
         string timestamp = 7;
 
         // SKAdNetwork signature as specified by Apple.
-	// Note: With the release of SKAdNetwork 2.2, this field is deprecated
-	// in favor of the BidResponse.seatbid.bid.ext.skadn.fidelities.signature
-        // to support multiple fidelity-types.
+        // Note: With the release of SKAdNetwork 2.2, this field is deprecated
+        // in favor of the
+        // BidResponse.seatbid.bid.ext.skadn.fidelities.signature to support
+        // multiple fidelity-types.
         string signature = 8;
 
         // SKOverlay support.
@@ -2750,33 +2754,33 @@ message BidResponse {
         }
 
         message SKOverlay {
-	  // Delay before presenting the SKOverlay in seconds.  If set to 0, the
-	  // overlay will be shown immediately.  If this field is not set, the
-	  // overlay will not be shown.
-	  int32 delay = 1;
+          // Delay before presenting the SKOverlay in seconds.  If set to 0, the
+          // overlay will be shown immediately.  If this field is not set, the
+          // overlay will not be shown.
+          int32 delay = 1;
 
-	  // Delay before presenting the SKOverlay on an endcard in seconds.  If
-	  // set to 0, the overlay will be shown immediately.  If this field is
-	  // not set, the overlay will not be shown.
-	  int32 endcarddelay = 2;
+          // Delay before presenting the SKOverlay on an endcard in seconds.  If
+          // set to 0, the overlay will be shown immediately.  If this field is
+          // not set, the overlay will not be shown.
+          int32 endcarddelay = 2;
 
-	  // Whether the overlay can be dismissed by the user, where 0 = no, 1 =
-	  // yes
-	  bool dismissible = 3;
+          // Whether the overlay can be dismissed by the user, where 0 = no, 1 =
+          // yes
+          bool dismissible = 3;
 
           // Position of the Overlay. 0 = bottom, 1 = bottomRaised.
           int32 pos = 4;
 
-	  // Placeholder for exchange-specific extensions to OpenRTB.
-	  Ext ext = 99;
+          // Placeholder for exchange-specific extensions to OpenRTB.
+          Ext ext = 99;
 
           message Ext {
             extensions 500 to max;
           }
-        } // SKOverlay
-      } // SKAdNetworkResponse
-    } // Bid
-  } // SeatBid
+        }  // SKOverlay
+      }  // SKAdNetworkResponse
+    }  // Bid
+  }  // SeatBid
 
   message SeatNonBid {
     // Array of 1+ NonBid objects each related to an impression. Multiple non
@@ -2808,8 +2812,8 @@ message BidResponse {
       message Ext {
         extensions 500 to max;
       }
-    } // NonBid
-  } // SeatNonBid
+    }  // NonBid
+  }  // SeatNonBid
 
   message InterestGroupAuctionIntent {
     // ID of the Imp object in the related bid request. Used to link Interest
@@ -2824,7 +2828,7 @@ message BidResponse {
     // One or more InterestGroupAuctionSeller objects. Required and mutually
     // exclusive with igb.
     repeated InterestGroupAuctionSeller igs = 3;
-  } // InterestGroupAuctionIntent
+  }  // InterestGroupAuctionIntent
 
   // Information provided by the buyer and necessary for the seller to build the
   // associated config.
@@ -2874,7 +2878,7 @@ message BidResponse {
     // configuration, provided the seller does not start the auction in parallel
     // with OpenRTB requests.
     int32 begid = 6;
-  } // InterestGroupAuctionBuyer
+  }  // InterestGroupAuctionBuyer
 
   // Information provided by the seller and necessary to initiate an Interest
   // Group component auction. Component seller auction configuration should be
@@ -2887,8 +2891,8 @@ message BidResponse {
 
     // Auction config for a component seller.
     google.protobuf.Any config = 2;
-  } // InterestGroupAuctionSeller
-} // BidResponse
+  }  // InterestGroupAuctionSeller
+}  // BidResponse
 
 message Transparency {
   // Domain of the entity that applied user parameters.
@@ -2899,7 +2903,7 @@ message Transparency {
   // possible user parameters as listed here, applied consistently in both bid
   // request and/or bid response.
   enum DsaParams {
-    DsaParams_UNKNOWN = 0;
+    DSA_PARAMS_UNKNOWN = 0;
 
     // Information about the user, collected and used across contexts, that is
     // about the user's activity, interests, demographic information, or other
@@ -2920,7 +2924,7 @@ message Transparency {
     PRECISE_GEOLOCATION = 3;
   }
   repeated int32 dsaparams = 2;
-} // Transparency
+}  // Transparency
 
 // The Native Object defines the native advertising opportunity available for
 // bid via this bid request. It must be included directly in the impression
@@ -3053,7 +3057,7 @@ message NativeRequest {
       message Ext {
         extensions 500 to max;
       }
-    } // Title
+    }  // Title
 
     // The Image object to be used for all image elements of the Native ad such
     // as Icons, Main Image, etc. Recommended sizes and aspect ratios are
@@ -3097,7 +3101,7 @@ message NativeRequest {
       message Ext {
         extensions 500 to max;
       }
-    } // Image
+    }  // Image
 
     // The Data Object is to be used for all non-core elements of the native
     // unit such as Ratings, Review Count, Stars, Download count, descriptions
@@ -3126,8 +3130,8 @@ message NativeRequest {
 
         extensions 500 to max;
       }
-    } // Data
-  } // Asset
+    }  // Data
+  }  // Asset
 
   // The EventTrackers object specifies the type of events the bidder can
   // request to be tracked in the bid response, and which types of tracking are
@@ -3150,8 +3154,8 @@ message NativeRequest {
     message Ext {
       extensions 500 to max;
     }
-  } // EventTrackers
-} // NativeRequest
+  }  // EventTrackers
+}  // NativeRequest
 
 // The native response object is the top level JSON object which identifies an
 // native response. Note: Prior to VERSION 1.1, the native response's root node
@@ -3239,7 +3243,7 @@ message NativeResponse {
     message Ext {
       extensions 500 to max;
     }
-  } // Link
+  }  // Link
 
   // Corresponds to the Asset Object in the request. The main container object
   // for each asset requested or supported by Exchange on behalf of the
@@ -3304,7 +3308,7 @@ message NativeResponse {
       message Ext {
         extensions 500 to max;
       }
-    } // Title
+    }  // Title
 
     // Corresponds to the Image Object in the request. The Image object to be
     // used for all image elements of the Native ad such as Icons, Main Image,
@@ -3340,7 +3344,7 @@ message NativeResponse {
       message Ext {
         extensions 500 to max;
       }
-    } // Image
+    }  // Image
 
     // Corresponds to the Data Object in the request, with the value filled in.
     // The Data Object is to be used for all miscellaneous elements of the
@@ -3374,7 +3378,7 @@ message NativeResponse {
       message Ext {
         extensions 500 to max;
       }
-    } // Data
+    }  // Data
 
     // Corresponds to the Video Object in the request, yet containing a value of
     // a conforming VAST tag as a value.
@@ -3389,8 +3393,8 @@ message NativeResponse {
       message Ext {
         extensions 500 to max;
       }
-    } // Video
-  } // Asset
+    }  // Video
+  }  // Asset
 
   // The event trackers response is an array of objects and specifies the types
   // of events the bidder wishes to track and the URLs/information to track
@@ -3426,8 +3430,8 @@ message NativeResponse {
     message Ext {
       extensions 500 to max;
     }
-  } // EventTracker
-} // NativeResponse
+  }  // EventTracker
+}  // NativeResponse
 
 // ***** OpenRTB Core enums ****************************************************
 
@@ -3435,7 +3439,7 @@ message NativeResponse {
 // restricted by publisher site settings.
 enum BannerAdType {
   // Equivalent to an unset value.
-  BannerAdType_UNKNOWN = 0;
+  BANNER_AD_TYPE_UNKNOWN = 0;
   // "Usually mobile".
   XHTML_TEXT_AD = 1;
   // "Usually mobile".
@@ -3452,7 +3456,7 @@ enum BannerAdType {
 // all asset variants or introduce new ones unique to that system. To be
 // deprecated.
 enum LayoutId {
-  LayoutId_UNKNOWN = 0;
+  LAYOUT_ID_UNKNOWN = 0;
   CONTENT_WALL = 1;
   APP_WALL = 2;
   NEWS_FEED = 3;
@@ -3470,7 +3474,7 @@ enum LayoutId {
 // implementing exchange may not support all asset variants or introduce new
 // ones unique to that system. To be deprecated.
 enum AdUnitId {
-  AdUnitId_UNKNOWN = 0;
+  AD_UNIT_ID_UNKNOWN = 0;
   PAID_SEARCH_UNIT = 1;
   RECOMMENDATION_WIDGET = 2;
   PROMOTED_LISTING = 3;
@@ -3486,7 +3490,7 @@ enum AdUnitId {
 // expected that most content platforms have some social components, etc.
 enum ContextType {
   // Equivalent to an unset value.
-  ContextType_UNKNOWN = 0;
+  CONTEXT_TYPE_UNKNOWN = 0;
   // Content-centric context such as newsfeed, article, image gallery, video
   // gallery, or similar.
   CONTENT = 1;
